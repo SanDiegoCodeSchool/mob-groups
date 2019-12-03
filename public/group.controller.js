@@ -24,9 +24,11 @@ function createTable(students,link) {
     
     table.appendChild(tableHead);
     table.appendChild(tableBody);
-    document.body.appendChild(table);
+    
+    const container = document.getElementById('groups-container');
+    container.appendChild(table);
     timeStamp.innerHTML = timeGenerated;
-    document.body.appendChild(timeStamp);
+    container.appendChild(timeStamp);
 }
 
 fetch('/group')
