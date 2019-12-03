@@ -1,16 +1,18 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const app = express();
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-var groups = [];
+var groupsGenerated = [];
 let students = [];
 let lastGenerated = new Date();
+const links = [process.env.GROUP_1_URL, process.env.GROUP_2_URL, process.env.GROUP_3_URL, process.env.GROUP_4_URL]
 
 function generateGroups(students, random, size) {
   if (random) {
@@ -63,8 +65,8 @@ app.post("/admin", (req, res) => {
   if (typeof (random) === 'boolean'
     && /^[0-9]+$/.test(size)
     && parseInt(size) > 0) {
-    groups = generateGroups(students, random, parseInt(size));
-    res.status(200).send(groups);
+    groupsGenerated = generateGroups(students, random, parseInt(size));
+    res.status(200).send(groupsGenerated);
   } else {
     res.status(422).send('invalid data');
   }
@@ -90,7 +92,7 @@ app.post("/add-student", (req, res) => {
 app.post("/delete-students", (req, res) => {
   let count = students.length;
   students = [];
-  groups = [];
+  groupsGenerated = [];
   res.send({ "deleted": count });
 });
 
@@ -99,7 +101,8 @@ app.get("/students", function (req, res) {
 });
 
 app.get("/group", function (req, res) {
-  res.json({groups, lastGenerated});
+  res.json({groups:groupsGenerated, lastGenerated, links});
+  
 })
 
 app.get("*", function (req, res) {
