@@ -83,6 +83,7 @@ table {
 
 td {
     padding: 0px 10px 0px 10px;
+    display: grid; 
 }
 
 #student-groups-title {
@@ -90,5 +91,6 @@ td {
 }
 
 thead {
-    background-color: goldenrod;
+    background-color: darkgrey;
+    text-align: center;
 }
