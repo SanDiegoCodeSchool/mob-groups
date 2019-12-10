@@ -45,9 +45,6 @@ body {
 
 .centered-vertical {
     @include vertical-center;
-    @include mobile {
-        width: 80%;
-    }
 }
 
 /////////////////////////////////////////////////////////////
@@ -127,11 +124,13 @@ body {
 
 .success-header {
     color: $blue;
+    text-align:center; 
 }
 
 .success-text {
     font-size: 1rem;
     color: $warm;
+    text-align: center; 
 }
 
 .success-link {
@@ -150,8 +149,15 @@ table {
 thead {
     background-color: $blue;
     color: $grey;
-    padding: 1vh 1vw;
-    font-size: 1.5rem;
+    text-align: center;
+    td {
+        padding: 1vh 1.5vw;
+    }
+    font-size: 1.2rem;
+}
+
+thead a {
+    color: $grey
 }
 
 tbody > tr {

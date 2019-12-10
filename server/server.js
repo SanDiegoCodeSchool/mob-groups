@@ -14,7 +14,7 @@ app.use(express.static('dist'));
 var groupsGenerated = [];
 let students = [];
 let lastGenerated = new Date();
-const links = [process.env.GROUP_1_URL, process.env.GROUP_2_URL, process.env.GROUP_3_URL, process.env.GROUP_4_URL]
+const links = [process.env.GROUP_1_URL, process.env.GROUP_2_URL, process.env.GROUP_3_URL, process.env.GROUP_4_URL];
 
 function generateGroups(students, random, size) {
 if (random) {
