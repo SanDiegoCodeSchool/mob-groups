@@ -32,7 +32,7 @@ function Success(props) {
                                 <table key={ key }>
                                     <thead>
                                         <tr>
-                                            <td>{key <= 4 ? links[key-1] : ""}   </td>
+                                          <td>{key <= 4 ? <a href={links[key-1]} target="_blank">{links[key-1]}</a> : ""}   </td>
                                         </tr>
                                     </thead>
                                     <tbody>

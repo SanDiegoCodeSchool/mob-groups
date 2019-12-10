@@ -150,8 +150,15 @@ table {
 thead {
     background-color: $blue;
     color: $grey;
-    padding: 1vh 1vw;
-    font-size: 1.5rem;
+    text-align: center;
+    td {
+        padding: 1vh 1.5vw;
+    }
+    font-size: 1.2rem;
+}
+
+thead a {
+    color: $grey
 }
 
 tbody > tr {
