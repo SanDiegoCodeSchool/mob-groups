@@ -45,9 +45,6 @@ body {
 
 .centered-vertical {
     @include vertical-center;
-    @include mobile {
-        width: 80%;
-    }
 }
 
 /////////////////////////////////////////////////////////////
@@ -127,11 +124,13 @@ body {
 
 .success-header {
     color: $blue;
+    text-align:center; 
 }
 
 .success-text {
     font-size: 1rem;
     color: $warm;
+    text-align: center; 
 }
 
 .success-link {
